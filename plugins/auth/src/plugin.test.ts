@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { default as authPlugin } from './plugin';
+import { authPlugin } from './plugin';
 
 describe('auth', () => {
   it('should export plugin', () => {
