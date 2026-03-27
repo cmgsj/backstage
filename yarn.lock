@@ -4674,6 +4674,7 @@ __metadata:
   resolution: "@backstage/plugin-auth@workspace:plugins/auth"
   dependencies:
     "@backstage/cli": "workspace:^"
+    "@backstage/core-plugin-api": "workspace:^"
     "@backstage/dev-utils": "workspace:^"
     "@backstage/errors": "workspace:^"
     "@backstage/frontend-defaults": "workspace:^"
