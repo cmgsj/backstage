@@ -14,15 +14,14 @@
  * limitations under the License.
  */
 
-import { createApp } from '@backstage/frontend-defaults';
-import { createRoot } from 'react-dom/client';
+import { createDevApp } from '@backstage/dev-utils';
+import { authPlugin, ConsentPage } from '../src/plugin';
 
-import plugin from '../src';
-
-const app = createApp({
-  features: [plugin],
-});
-
-const container = document.getElementById('root');
-const root = createRoot(container!);
-root.render(app.createRoot());
+createDevApp()
+  .registerPlugin(authPlugin)
+  .addPage({
+    element: <ConsentPage />,
+    title: 'Consent Page',
+    path: '/oauth2/authorize/:sessionId',
+  })
+  .render();
