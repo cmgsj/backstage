@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 import {
-  createFrontendPlugin,
-  PageBlueprint,
-} from '@backstage/frontend-plugin-api';
+  createPlugin,
+  createRoutableExtension,
+} from '@backstage/core-plugin-api';
 import { rootRouteRef } from './routes';
 
-export const AuthPage = PageBlueprint.make({
-  params: {
-    path: '/oauth2',
-    routeRef: rootRouteRef,
-    loader: () => import('./components/Router').then(m => <m.Router />),
-  },
-});
-
-export default createFrontendPlugin({
-  pluginId: 'auth',
-  extensions: [AuthPage],
+export const authPlugin = createPlugin({
+  id: 'auth',
   routes: {
     root: rootRouteRef,
   },
 });
+
+export const ConsentPage = authPlugin.provide(
+  createRoutableExtension({
+    name: 'ConsentPage',
+    component: () =>
+      import('./components/ConsentPage').then(m => m.ConsentPage),
+    mountPoint: rootRouteRef,
+  }),
+);
