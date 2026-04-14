@@ -132,9 +132,9 @@ const _default: OverridableFrontendPlugin<
         icon: string | undefined;
       };
       configInput: {
-        filter?: FilterPredicate | undefined;
-        title?: string | undefined;
         path?: string | undefined;
+        title?: string | undefined;
+        filter?: FilterPredicate | undefined;
         group?: string | false | undefined;
         icon?: string | undefined;
       };
@@ -446,6 +446,17 @@ const _default: OverridableFrontendPlugin<
         loader?: () => Promise<JSX_2.Element>;
         routeRef?: RouteRef_2;
         noHeader?: boolean;
+      };
+    }>;
+    'plugin-header-action:techdocs': OverridableExtensionDefinition<{
+      kind: 'plugin-header-action';
+      name: undefined;
+      config: {};
+      configInput: {};
+      output: ExtensionDataRef<JSX_2.Element, 'core.reactElement', {}>;
+      inputs: {};
+      params: {
+        loader: () => Promise<JSX.Element>;
       };
     }>;
     'search-result-list-item:techdocs': OverridableExtensionDefinition<{

@@ -47,7 +47,11 @@ const SearchAutocompleteEmptyState = () => {
   return <div className={ownProps.classes.emptyState}>No results found.</div>;
 };
 
-/** @public */
+/**
+ * A search input that shows a dropdown list of suggestions as the user types, with loading and empty states.
+ *
+ * @public
+ */
 export function SearchAutocomplete(props: SearchAutocompleteProps) {
   const { ownProps, dataAttributes } = useDefinition(
     SearchAutocompleteDefinition,
@@ -124,7 +128,7 @@ export function SearchAutocomplete(props: SearchAutocompleteProps) {
           <div
             ref={triggerRef}
             className={classes.root}
-            data-size={dataAttributes['data-size']}
+            {...dataAttributes}
             style={style}
           >
             <div aria-hidden="true">
@@ -184,7 +188,11 @@ export function SearchAutocomplete(props: SearchAutocompleteProps) {
   );
 }
 
-/** @public */
+/**
+ * An individual option item within a SearchAutocomplete dropdown.
+ *
+ * @public
+ */
 export function SearchAutocompleteItem(props: SearchAutocompleteItemProps) {
   const { ownProps, restProps } = useDefinition(
     SearchAutocompleteItemDefinition,
